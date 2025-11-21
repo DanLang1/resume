@@ -32,7 +32,7 @@
   "projects": [
     {
       "imageUrl": "fire.jpg",
-      "title": "Chat App For Friends",
+      "title": "Chat App",
       "type": "Website",
       "link": "https://github.com/DanLang1/-century"
     },
@@ -44,7 +44,7 @@
     },
     {
       "imageUrl": "brownie.jpg",
-      "title": "daniellang.com",
+      "title": "Personal Website",
       "type": "Website",
       "link": "https://github.com/DanLang1/resume"
     }

@@ -1,7 +1,8 @@
 ---
 import { Image } from "astro:assets";
 import heroImage from "../../assets/Daniel_Lang.jpg";
-import { basic } from "../../config/cv.json";
+import { basic, socialLinks } from "../../config/cv.json";
+import { Icon } from "astro-icon/components";
 ---
 
 <section class="py-5 px-4 sm:py-10 lg:py-16">
@@ -40,6 +41,22 @@ import { basic } from "../../config/cv.json";
           >
             Download CV
           </a>
+
+          <div class="flex items-center justify-center mt-6 space-x-6 sm:mt-0">
+            {
+              socialLinks.map((social) => (
+                <a
+                  href={social.link}
+                  title={social.iconName}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-offset transition-all duration-200 hover:text-primary focus:text-primary"
+                >
+                  <Icon name={social.iconName} class="w-10 h-10" />
+                </a>
+              ))
+            }
+          </div>
         </div>
       </div>
     </div>
