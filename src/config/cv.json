@@ -19,7 +19,7 @@
       "title": "Software Developer",
       "sub_title": "Sentry Insurance",
       "years": "2020 - 2022",
-      "details": "Worked across a broad range of insurance policy systems, including Workers’ Compensation, Auto, rating services, form generation, and policy creation"
+      "details": "Contributed to a variety of projects, including rating inputs, workers’ compensation, and front-end enhancements, adapting rapidly across domains"
     }
   ],
   "education": [
@@ -31,7 +31,7 @@
   ],
   "projects": [
     {
-      "imageUrl": "https://images.unsplash.com/photo-1487017159836-4e23ece2e4cf?q=80&w=764&auto=format&fit=crop",
+      "imageUrl": "fire.jpg",
       "title": "Chat App For Friends",
       "type": "Website",
       "link": "https://github.com/DanLang1/-century"
@@ -43,10 +43,10 @@
       "link": "https://github.com/DanLang1/videopan"
     },
     {
-      "imageUrl": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=764&auto=format&fit=crop",
+      "imageUrl": "brownie.jpg",
       "title": "daniellang.com",
       "type": "Website",
-      "link": "https://github.com/wasutz/astro-resume-theme"
+      "link": "https://github.com/DanLang1/resume"
     }
   ],
   "menuItems": [
