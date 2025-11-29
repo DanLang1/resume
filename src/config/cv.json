@@ -10,8 +10,12 @@
       "title": "Software Engineer",
       "sub_title": "Cubic Corporation",
       "years": "2022 - Present",
+      "summary": "Full-stack development (React/Typescript and Java) focusing on modernizing legacy systems and supporting high-scale backend services",
       "details": [
         "Modernized legacy central management dashboard using React and Typescript",
+        "Reduced build time from 2.5 hours to 20 minutes by removing circular dependencies and adjusting build configuration settings",
+        "Introduced Redux Toolkit Query to replace manual data fetching via useEffect, reducing bugs and improving developer experience",
+        "Implemented new payment type on the Order Management System (Java/Spring) for Fare Not Paid Invoices allowing users to pay unpaid fares at a later time",
         "Collaborated across multiple Java microservices to support new REST APIs, order flows, and data validations for the company’s backend order system with over 30 million daily users worldwide"
       ]
     },
@@ -19,7 +23,12 @@
       "title": "Software Developer",
       "sub_title": "Sentry Insurance",
       "years": "2020 - 2022",
-      "details": "Contributed to a variety of projects, including rating inputs, workers’ compensation, and front-end enhancements, adapting rapidly across domains"
+      "summary": "Primarily backend Java development across a wide variety of insurance domains",
+      "details": [
+        "Served as primary developer for an Auto Liability Reporting system (Java/Spring), enhancing compliant policy reporting through an automated nightly batch job",
+        "Implemented feature allowing business users to retire Workers Compensation holds via UI, removing need for devs to run manual DB scripts which require manager and DB admin approval",
+        "Contributed to a variety of projects, including rating inputs, workers’ compensation, and front-end enhancements, adapting rapidly across domains"
+      ]
     }
   ],
   "education": [

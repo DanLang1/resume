@@ -1,8 +1,14 @@
 ---
-const { title, sub_title, years, details } = Astro.props;
+const { title, sub_title, years, details, summary } = Astro.props;
+const hasDetails =
+  details && (Array.isArray(details) ? details.length > 0 : details.length > 0);
+const itemId = `experience-${title.replace(/\s+/g, "-").toLowerCase()}`;
 ---
 
-<li class="p-5 bg-background-offset shadow-lg rounded-xl border border-default">
+<li
+  class="p-5 bg-background-offset shadow-lg rounded-xl border border-default"
+  id={itemId}
+>
   <div class="flex flex-col sm:flex-row justify-between items-start">
     <div class="mb-4 sm:mb-0">
       <h3 class="text-2xl font-semibold">{title}</h3>
@@ -10,15 +16,74 @@ const { title, sub_title, years, details } = Astro.props;
     </div>
     <p class="text-sm text-offset sm:text-right whitespace-nowrap">{years}</p>
   </div>
+
+  {summary && <p class="mt-4 text-offset leading-relaxed">{summary}</p>}
+
   {
-    Array.isArray(details) ? (
-      <ul class="mt-4 list-disc list-inside text-offset leading-relaxed">
-        {details.map((detail: string) => (
-          <li>{detail}</li>
-        ))}
-      </ul>
-    ) : (
-      <p class="mt-4 text-offset leading-relaxed">{details}</p>
+    hasDetails && (
+      <div class="details-content hidden">
+        {Array.isArray(details) ? (
+          <ul class="mt-4 list-disc list-inside text-offset leading-relaxed">
+            {details.map((detail: string) => (
+              <li>{detail}</li>
+            ))}
+          </ul>
+        ) : (
+          <p class="mt-4 text-offset leading-relaxed">{details}</p>
+        )}
+      </div>
+    )
+  }
+
+  {
+    hasDetails && (
+      <button
+        class="toggle-btn mt-4 text-primary hover:text-primary-offset text-sm font-medium focus:outline-none transition-colors duration-300"
+        aria-expanded="false"
+        aria-controls={`${itemId}-details`}
+      >
+        Show More
+      </button>
     )
   }
 </li>
+
+<script>
+  function setupToggles() {
+    const toggles = document.querySelectorAll(".toggle-btn");
+
+    toggles.forEach((btn) => {
+      // Remove existing listeners to avoid duplicates if re-run
+      const newBtn = btn.cloneNode(true);
+      if (btn.parentNode) {
+        btn.parentNode.replaceChild(newBtn, btn);
+      }
+
+      newBtn.addEventListener("click", (e) => {
+        const button = e.target as HTMLButtonElement;
+        const container = button.closest("li");
+        const details = container?.querySelector(".details-content");
+
+        if (details) {
+          const isHidden = details.classList.contains("hidden");
+
+          if (isHidden) {
+            details.classList.remove("hidden");
+            button.textContent = "Show Less";
+            button.setAttribute("aria-expanded", "true");
+          } else {
+            details.classList.add("hidden");
+            button.textContent = "Show More";
+            button.setAttribute("aria-expanded", "false");
+          }
+        }
+      });
+    });
+  }
+
+  // Run on initial load
+  setupToggles();
+
+  // Run on view transitions if enabled
+  document.addEventListener("astro:page-load", setupToggles);
+</script>
