@@ -1,14 +1,10 @@
 ---
 const { title, sub_title, years, details, summary } = Astro.props;
-const hasDetails =
-  details && (Array.isArray(details) ? details.length > 0 : details.length > 0);
-const itemId = `experience-${title.replace(/\s+/g, "-").toLowerCase()}`;
+// Check if details exists and has items. Education section passes undefined/empty details.
+const hasDetails = details && details.length > 0;
 ---
 
-<li
-  class="p-5 bg-background-offset shadow-lg rounded-xl border border-default"
-  id={itemId}
->
+<li class="p-5 bg-background-offset shadow-lg rounded-xl border border-default">
   <div class="flex flex-col sm:flex-row justify-between items-start">
     <div class="mb-4 sm:mb-0">
       <h3 class="text-2xl font-semibold">{title}</h3>
@@ -21,69 +17,18 @@ const itemId = `experience-${title.replace(/\s+/g, "-").toLowerCase()}`;
 
   {
     hasDetails && (
-      <div class="details-content hidden">
-        {Array.isArray(details) ? (
-          <ul class="mt-4 list-disc list-inside text-offset leading-relaxed">
-            {details.map((detail: string) => (
-              <li>{detail}</li>
-            ))}
-          </ul>
-        ) : (
-          <p class="mt-4 text-offset leading-relaxed">{details}</p>
-        )}
-      </div>
-    )
-  }
+      <details class="group mt-4 flex flex-col gap-4">
+        <summary class="list-none cursor-pointer text-primary hover:text-primary-offset text-sm font-medium focus:outline-none transition-colors duration-300 w-fit order-last">
+          <span class="group-open:hidden">Show More</span>
+          <span class="hidden group-open:block">Show Less</span>
+        </summary>
 
-  {
-    hasDetails && (
-      <button
-        class="toggle-btn mt-4 text-primary hover:text-primary-offset text-sm font-medium focus:outline-none transition-colors duration-300"
-        aria-expanded="false"
-        aria-controls={`${itemId}-details`}
-      >
-        Show More
-      </button>
+        <ul class="list-disc list-inside text-offset leading-relaxed">
+          {details.map((detail: string) => (
+            <li>{detail}</li>
+          ))}
+        </ul>
+      </details>
     )
   }
 </li>
-
-<script>
-  function setupToggles() {
-    const toggles = document.querySelectorAll(".toggle-btn");
-
-    toggles.forEach((btn) => {
-      // Remove existing listeners to avoid duplicates if re-run
-      const newBtn = btn.cloneNode(true);
-      if (btn.parentNode) {
-        btn.parentNode.replaceChild(newBtn, btn);
-      }
-
-      newBtn.addEventListener("click", (e) => {
-        const button = e.target as HTMLButtonElement;
-        const container = button.closest("li");
-        const details = container?.querySelector(".details-content");
-
-        if (details) {
-          const isHidden = details.classList.contains("hidden");
-
-          if (isHidden) {
-            details.classList.remove("hidden");
-            button.textContent = "Show Less";
-            button.setAttribute("aria-expanded", "true");
-          } else {
-            details.classList.add("hidden");
-            button.textContent = "Show More";
-            button.setAttribute("aria-expanded", "false");
-          }
-        }
-      });
-    });
-  }
-
-  // Run on initial load
-  setupToggles();
-
-  // Run on view transitions if enabled
-  document.addEventListener("astro:page-load", setupToggles);
-</script>
