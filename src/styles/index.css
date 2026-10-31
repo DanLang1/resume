@@ -1,1 +1,35 @@
-@import "theme.css";
+@import "tailwindcss";
+@import "./theme.css";
+
+@theme inline {
+  --color-primary: var(--theme-primary);
+  --color-secondary: var(--theme-secondary);
+
+  --text-color-default: var(--theme-text);
+  --text-color-offset: var(--theme-text-offset);
+
+  --background-color-default: var(--theme-background);
+  --background-color-offset: var(--theme-background-offset);
+  --background-color-border: var(--theme-border);
+
+  --border-color-default: var(--theme-border);
+
+  --animate-spin-slower: spin 35s ease infinite;
+  --animate-spin-slow: spin 25s ease-in-out infinite reverse;
+}
+
+/* Keep Tailwind v3 defaults that v4 changed */
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}

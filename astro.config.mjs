@@ -1,11 +1,13 @@
 import { defineConfig } from 'astro/config';
 
-import tailwind from '@astrojs/tailwind';
+import tailwindcss from '@tailwindcss/vite';
 import icon from 'astro-icon';
-import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   site: "https://daniel-lang.netlify.app",
-  integrations: [tailwind(), icon(), mdx(), sitemap()]
+  integrations: [icon(), sitemap()],
+  vite: {
+    plugins: [tailwindcss()]
+  }
 });
