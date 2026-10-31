@@ -1,22 +1,21 @@
 {
   "basic": {
     "name": "Daniel Lang",
-    "job": "Software Engineer",
-    "summary": "Full-stack Software Engineer with experience modernizing large-scale enterprise systems and enhancing application performance. Skilled in React, TypeScript, and Java.",
-    "cv_file_name": "DanLangRes12-1.pdf"
+    "job": "Senior Software Engineer",
+    "summary": "Full-stack Software Engineer with experience modernizing large-scale enterprise systems, building backend integrations, and shipping cross-platform mobile apps. Skilled in Java, React, TypeScript, and React Native.",
+    "cv_file_name": "DanLangRes10-13.pdf"
   },
   "experiences": [
     {
-      "title": "Software Engineer",
+      "title": "Senior Software Engineer",
       "sub_title": "Cubic Corporation",
       "years": "2022 - Present",
-      "summary": "Full-stack development (React/Typescript and Java) focusing on modernizing legacy systems and supporting high-scale backend services",
+      "summary": "Full-stack development (Java, React and TypeScript) focusing on modernizing legacy systems, developer tooling, and transit agency integrations",
       "details": [
-        "Modernized legacy central management dashboard using React and Typescript",
-        "Reduced build time from 2.5 hours to 20 minutes by removing circular dependencies and adjusting build configuration settings",
-        "Introduced Redux Toolkit Query to replace manual data fetching via useEffect, reducing bugs and improving developer experience",
-        "Implemented new payment type on the Order Management System (Java/Spring) for Fare Not Paid Invoices allowing users to pay unpaid fares at a later time",
-        "Collaborated across multiple Java microservices to support new REST APIs, order flows, and data validations for the company’s backend order system with over 30 million daily users worldwide"
+        "Reduced build time of a shared Java, Angular and React repository from 2.5 hours to 20 minutes, accelerating development for multiple teams",
+        "Built an MCP server and React app that let developers and testers search microservice logs through AI tools or a simple UI",
+        "Serving as primary developer of a new Java adapter service connecting internal microservices to a major transit agency’s back office with no changes to the existing backend; own scaffolding, authentication and integration testing",
+        "Led an Angular-to-React migration of a legacy management console from inception to production, cutting login-to-landing load time by 50%"
       ]
     },
     {
@@ -25,9 +24,9 @@
       "years": "2020 - 2022",
       "summary": "Primarily backend Java development across a wide variety of insurance domains",
       "details": [
-        "Served as primary developer for an Auto Liability Reporting system (Java/Spring), enhancing compliant policy reporting through an automated nightly batch job",
-        "Implemented feature allowing business users to retire Workers Compensation holds via UI, removing need for devs to run manual DB scripts which require manager and DB admin approval",
-        "Contributed to a variety of projects, including rating inputs, workers’ compensation, and front-end enhancements, adapting rapidly across domains"
+        "Owned development of a Java and Spring auto-liability reporting system that automated nightly policy reporting and supported regulatory compliance",
+        "Integrated REST APIs for real-time policy retrieval and delivered a self-service workflow that replaced manager- and DBA-approved database scripts",
+        "Modernized Java and Gradle services, removed circular dependencies, and improved on-call response through durable alert documentation"
       ]
     }
   ],
